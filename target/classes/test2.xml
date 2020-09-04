@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="fe503877-db94-4a5e-915f-5f61740a609b" />
+	<flow name="test2Flow" doc:id="ddd6c06b-6647-4ab9-8083-cbe24302e6f2" >
+		<file:read doc:name="Read" doc:id="34a96351-64f5-4b61-bd58-776c6e8d6d57" config-ref="File_Config" path="D:\Goals\Performance_Goal_Library_SFDC_Master_FY21-Updated Ver 1.8.xlsx"/>
+		<logger level="INFO" doc:name="Logger" doc:id="afe4deb0-4aaf-4604-b063-d6807767fa4c" />
+	</flow>
+</mule>
