@@ -6,12 +6,12 @@ node{
          sh 'mvn clean package'
       }
   stage('Sonar Analysis'){
-   withSonarQubeEnv('SonarQube') {
-       sh "/var/lib/jenkins/apache-maven-3.6.0/bin/mvn clean install  
--Dsonar.host.url=http://sonar.optum.com
--Dsonar.login=6690089c8a82788b6b95e0ddc834e4c7d67b211b "
+   withSonarQubeEnv(credentialsId: 'SQ_key') {
+       //sh "/var/lib/jenkins/apache-maven-3.6.0/bin/mvn clean install  
+       //-Dsonar.host.url=http://3.236.20.218:80
+       //-Dsonar.login=9a3576df4bd7d8d374f3e796c552fcd98393f617"
      }
-   timeout(time: 5, unit: 'MINUTES') { 
+   timeout(time: 50, unit: 'MINUTES') { 
           def qg = waitForQualityGate() 
           if (qg.status != 'OK') {
             error "Pipeline aborted due to quality gate failure: ${qg.status}"
